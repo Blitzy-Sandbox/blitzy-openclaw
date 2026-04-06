@@ -4,10 +4,10 @@ metadata:
   name: blitzy-openclaw
   description: "OpenClaw AI assistant fork — exploring AI-assisted agent development"
   tags:
-    - go
-    - scaffolded
+    - rust
+    - library
+    - new-feature
   labels:
-    blitzy.com/status: scaffolded
     blitzy.com/language: go
   annotations:
     github.com/project-slug: Blitzy-Sandbox/blitzy-openclaw
