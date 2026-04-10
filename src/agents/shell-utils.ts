@@ -45,7 +45,13 @@ export function getShellConfig(): { shell: string; args: string[] } {
       return { shell: sh, args: ["-c"] };
     }
   }
-  const shell = envShell && envShell.length > 0 ? envShell : "sh";
+  // Resolve to an absolute path so that spawn() works even when
+  // the child process receives a custom env.PATH that does not
+  // include the directory containing the shell binary. Falls back
+  // to "/bin/sh" (POSIX standard) if resolution fails, consistent
+  // with resolveShell() in src/infra/shell-env.ts.
+  const shell =
+    envShell && envShell.length > 0 ? envShell : (resolveShellFromPath("sh") ?? "/bin/sh");
   return { shell, args: ["-c"] };
 }
 
