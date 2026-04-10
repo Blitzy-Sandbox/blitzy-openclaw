@@ -50,8 +50,12 @@ export function getShellConfig(): { shell: string; args: string[] } {
   // include the directory containing the shell binary. Falls back
   // to "/bin/sh" (POSIX standard) if resolution fails, consistent
   // with resolveShell() in src/infra/shell-env.ts.
+  // Guard: POSIX $SHELL is always an absolute path; reject bogus
+  // values (e.g. the string "undefined" from `process.env.SHELL = undefined`).
   const shell =
-    envShell && envShell.length > 0 ? envShell : (resolveShellFromPath("sh") ?? "/bin/sh");
+    envShell && envShell.length > 0 && envShell.startsWith("/")
+      ? envShell
+      : (resolveShellFromPath("sh") ?? "/bin/sh");
   return { shell, args: ["-c"] };
 }
 
