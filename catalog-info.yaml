@@ -2,11 +2,12 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: blitzy-openclaw
-  description: "OpenClaw AI assistant fork — exploring AI-assisted agent development"
+  description: OpenClaw AI assistant fork — exploring AI-assisted agent development
   tags:
-    - rust
-    - library
-    - new-feature
+  - go
+  - library
+  - new-feature
+  - rust
   labels:
     blitzy.com/language: go
   annotations:
@@ -14,11 +15,11 @@ metadata:
     github.com/project-slug: Blitzy-Sandbox/blitzy-openclaw
     backstage.io/source-location: url:https://github.com/Blitzy-Sandbox/blitzy-openclaw/tree/main/
   links:
-    - url: https://github.com/Blitzy-Sandbox/blitzy-openclaw
-      title: GitHub Repository
-    - url: https://github.com/Blitzy-Sandbox/blitzy-openclaw/tree/main/blitzy/documentation
-      title: Blitzy Documentation
-      icon: docs
+  - url: https://github.com/Blitzy-Sandbox/blitzy-openclaw
+    title: GitHub Repository
+  - url: https://github.com/Blitzy-Sandbox/blitzy-openclaw/tree/main/blitzy/documentation
+    title: Blitzy Documentation
+    icon: docs
 spec:
   type: library
   lifecycle: experimental
